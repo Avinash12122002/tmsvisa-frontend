@@ -22,18 +22,21 @@ export default function WorkOpportunity() {
     }
   };
 
-  useEffect(() => {
-    fetchJobs();
-  }, [currentPage, country]);
+ useEffect(() => {
+  fetchJobs();
+}, [currentPage, country]);
 
-  useEffect(() => {
+useEffect(() => {
   const sendHeight = () => {
     const height = document.documentElement.scrollHeight;
 
-    window.parent.postMessage({
-      type: "iframe-height",
-      height,
-    }, "*");
+    window.parent.postMessage(
+      {
+        type: "iframe-height",
+        height,
+      },
+      "*"
+    );
   };
 
   sendHeight();
@@ -41,18 +44,17 @@ export default function WorkOpportunity() {
   const timer = setTimeout(sendHeight, 500);
 
   return () => clearTimeout(timer);
-}, [filteredJobs.length, currentPage]);
+}, [jobs, currentPage, search, country]);
 
-  const filteredJobs = jobs.filter((job) => {
-    const q = search.toLowerCase();
+const filteredJobs = jobs.filter((job) => {
+  const q = search.toLowerCase();
 
-    return (
-      job.title?.toLowerCase().includes(q) ||
-      job.country?.toLowerCase().includes(q) ||
-      job.description?.toLowerCase().includes(q)
-    );
-  });
-
+  return (
+    job.title?.toLowerCase().includes(q) ||
+    job.country?.toLowerCase().includes(q) ||
+    job.description?.toLowerCase().includes(q)
+  );
+});
   return (
     <div ref={pageRef} className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
