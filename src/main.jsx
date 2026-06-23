@@ -2,7 +2,7 @@ import React from "react";
 
 import ReactDOM from "react-dom/client";
 
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 import App from "./App";
 
@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* ROUTER */}
 
-    <BrowserRouter>
+    <HashRouter>
       {/* SEO Provider */}
 
       <HelmetProvider>
@@ -60,6 +60,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <App />
         </AuthProvider>
       </HelmetProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
 );
