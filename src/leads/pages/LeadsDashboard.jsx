@@ -2,6 +2,8 @@ import AdminLayout from "../../pages/admin/layouts/AdminLayout";
 
 import useLeads from "../hooks/useLeads";
 
+import useConsultations from "../hooks/useConsultations";
+
 import LeadStatsCard from "../components/LeadStatsCard";
 
 export default function LeadsDashboard() {
@@ -11,7 +13,12 @@ export default function LeadsDashboard() {
     loading,
   } = useLeads();
 
-  if (loading) {
+  const {
+    consultations,
+    loading: consultationsLoading,
+  } = useConsultations();
+
+  if (loading || consultationsLoading) {
     return (
       <AdminLayout>
         <div className="p-6">
@@ -21,7 +28,7 @@ export default function LeadsDashboard() {
     );
   }
 
-  const total = leads.length;
+  const total = leads.length + consultations.length;
 
   const workVisa =
     leads.filter(
@@ -44,12 +51,12 @@ export default function LeadsDashboard() {
         "Visa AI"
     ).length;
 
-  const visaCourses =
-    leads.filter(
-      (l) =>
-        l.service ===
-        "Visa Courses"
-    ).length;
+  // const visaCourses =
+  //   leads.filter(
+  //     (l) =>
+  //       l.service ===
+  //       "Visa Courses"
+  //   ).length;
 
   return (
     <AdminLayout>
@@ -102,10 +109,16 @@ export default function LeadsDashboard() {
             color="bg-purple-600"
           />
 
-          <LeadStatsCard
+          {/* <LeadStatsCard
             title="Visa Courses"
             value={visaCourses}
             color="bg-orange-600"
+          /> */}
+
+          <LeadStatsCard
+            title="Consultation Leads"
+            value={consultations.length}
+            color="bg-pink-600"
           />
 
         </div>
