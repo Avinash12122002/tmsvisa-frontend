@@ -25,14 +25,9 @@ export default function UpdateConsultationModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-3">
-
       <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-4">
-
         <div className="flex justify-between items-center mb-4">
-
-          <h2 className="text-lg font-semibold">
-            Consultation Lead
-          </h2>
+          <h2 className="text-lg font-semibold">Consultation Lead</h2>
 
           <button
             onClick={onClose}
@@ -40,14 +35,17 @@ export default function UpdateConsultationModal({
           >
             ×
           </button>
-
         </div>
 
         <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
-
           <div>
             <span className="font-semibold">Name</span>
             <p className="truncate">{consultation.name}</p>
+          </div>
+
+          <div>
+            <span className="font-semibold">Email</span>
+            <p className="truncate">{consultation.email}</p>
           </div>
 
           <div>
@@ -75,14 +73,10 @@ export default function UpdateConsultationModal({
           </div>
 
           */}
-
         </div>
 
         <div className="mt-4">
-
-          <label className="block text-sm font-medium mb-1">
-            Status
-          </label>
+          <label className="block text-sm font-medium mb-1">Status</label>
 
           <select
             value={status}
@@ -93,14 +87,10 @@ export default function UpdateConsultationModal({
             <option>Contacted</option>
             <option>Converted</option>
           </select>
-
         </div>
 
         <div className="mt-3">
-
-          <label className="block text-sm font-medium mb-1">
-            Notes
-          </label>
+          <label className="block text-sm font-medium mb-1">Notes</label>
 
           <textarea
             rows={3}
@@ -108,11 +98,9 @@ export default function UpdateConsultationModal({
             onChange={(e) => setNotes(e.target.value)}
             className="w-full border rounded-lg px-3 py-2 text-sm resize-none"
           />
-
         </div>
 
         <div className="flex justify-end gap-2 mt-4">
-
           <button
             onClick={onClose}
             className="px-3 py-2 border rounded-lg text-sm hover:bg-gray-100"
@@ -126,11 +114,8 @@ export default function UpdateConsultationModal({
           >
             Save
           </button>
-
         </div>
-
       </div>
-
     </div>
   );
 }
