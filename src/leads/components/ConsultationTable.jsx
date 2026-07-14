@@ -16,8 +16,8 @@ export default function ConsultationTable({ consultations, onView, onDelete }) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow overflow-hidden">
-      <table className="w-full table-fixed text-xs">
+   <div className="bg-white rounded-xl shadow overflow-x-auto">
+      <table className="w-full text-xs">
         <thead className="bg-slate-100">
           <tr className="text-gray-700">
             <th className="px-2 py-2 text-left w-[16%]">Name</th>
