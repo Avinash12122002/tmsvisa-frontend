@@ -14,18 +14,18 @@ const menus = [
     label: "Users",
     path: "/admin/users",
   },
-  {
-    label: "Payments",
-    path: "/admin/payments",
-  },
-  {
-    label: "Analytics",
-    path: "/admin/analytics",
-  },
-  {
-    label: "Settings",
-    path: "/admin/settings",
-  },
+  // {
+  //   label: "Payments",
+  //   path: "/admin/payments",
+  // },
+  // {
+  //   label: "Analytics",
+  //   path: "/admin/analytics",
+  // },
+  // {
+  //   label: "Settings",
+  //   path: "/admin/settings",
+  // },
 ];
 
 const SCROLL_KEY = "adminSidebarScrollTop";
